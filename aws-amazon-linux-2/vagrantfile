@@ -1,0 +1,30 @@
+# Vagrantfile for Amazon Linux with custom CPU and RAM configuration
+Vagrant.configure("2") do |config|
+  # Specify the box to use for Amazon Linux
+  config.vm.box = "stakahashi/amazonlinux2" # Replace with correct Amazon Linux box name
+  config.vm.box_version = "2019.09.0.20190823"
+  
+  # Set VM hostname
+  config.vm.hostname = "amazon-linux-vm"
+  
+  # Configure VM provider settings
+  config.vm.provider "virtualbox" do |vb|
+    vb.name = "amazon-linux-vagrant" # Custom name for the VM in VirtualBox
+    vb.cpus = 4                      # Set CPU count
+    vb.memory = 8198                 # Set memory (RAM) in MB
+  end
+
+  # Network configuration (optional)
+  #config.vm.network "private_network", type: "dhcp"bridge: "ASIX USB to Gigabit Ethernet Family Adapter",
+  config.vm.network "private_network",   ip: "192.168.56.10"
+  #config.vm.network "forwarded_port", guest: 80, host: 8080 
+
+  # Provisioning (optional, customize as needed)
+  config.vm.provision "shell", inline: <<-SHELL
+    echo "Setting up Amazon Linux environment..."
+    echo "Setting up DNS..."
+    echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf > /dev/null
+    sudo yum clean all
+    sudo yum update -y
+  SHELL
+end
