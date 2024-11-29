@@ -1,0 +1,37 @@
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "centos/7"
+  
+  # Network configuration
+  config.vm.network "public_network", ip: "192.168.1.100"
+  config.vm.network "forwarded_port", guest: 80, host: 8080
+  
+  # VirtualBox-specific configurations
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = "1024"  # Assign 1GB RAM
+    vb.cpus = 1
+  end
+  
+  # Enhanced provisioning script
+  config.vm.provision "shell", inline: <<-SHELL
+    # Backup original resolv.conf
+    cp /etc/resolv.conf /etc/resolv.conf.backup
+    
+    # Configure DNS servers
+    cat > /etc/resolv.conf << EOF
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+EOF
+    
+    # Ensure resolv.conf doesn't get overwritten
+    chattr +i /etc/resolv.conf
+    
+    # Clean and reset yum
+    yum clean all
+    rm -rf /var/cache/yum
+    yum makecache fast
+    
+    # Update the system
+    yum update -y
+  SHELL
+end
