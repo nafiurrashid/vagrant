@@ -29,4 +29,15 @@ This repository contains preconfigured **Vagrantfiles** for setting up developme
    ```bash
    git clone https://github.com/nafiurrashid/vagrant.git
    cd vagrant
+# **Vagrant Commands**
+
+This document lists all the commonly used Vagrant commands mentioned earlier, along with their descriptions.
+
+---
+
+## **Basic Commands**
+
+### **1. Initialize a New Vagrant Project**
+```bash
+vagrant init
 
