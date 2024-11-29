@@ -27,6 +27,6 @@ This repository contains preconfigured **Vagrantfiles** for setting up developme
 
 1. Clone this repository:
    ```bash
-   git clone <repository-url>
-   cd <repository-directory>
+   git clone https://github.com/nafiurrashid/vagrant.git
+   cd vagrant
 
