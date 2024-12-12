@@ -39,6 +39,7 @@ vagrant/
    ```bash
    git clone https://github.com/nafiurrashid/vagrant.git
    cd vagrant
+```
 # **Vagrant Commands**
 
 This document lists all the commonly used Vagrant commands mentioned earlier, along with their descriptions.
@@ -50,7 +51,7 @@ This document lists all the commonly used Vagrant commands mentioned earlier, al
 ### **1. Initialize a New Vagrant Project**
 ```bash
 vagrant init
-
+```
 
 
 # **Vagrant Commands Reference**
