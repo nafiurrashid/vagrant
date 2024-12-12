@@ -3,6 +3,15 @@
 This repository contains preconfigured **Vagrantfiles** for setting up development environments on various operating systems. Each directory corresponds to a specific OS, simplifying the process of spinning up virtual machines for testing, development, or deployment.
 
 ---
+## **Folder Structure**
+vagrant/
+├── aws-amazon-linux-2/
+│   └── Vagrantfile
+├── centos-7/
+│   └── Vagrantfile
+└── ubuntu-os/
+    └── Vagrantfile
+
 
 ## **Contents**
 
