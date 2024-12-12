@@ -4,6 +4,7 @@ This repository contains preconfigured **Vagrantfiles** for setting up developme
 
 ---
 ## **Folder Structure**
+```
 vagrant/
 ├── aws-amazon-linux-2/
 │   └── Vagrantfile
@@ -11,7 +12,7 @@ vagrant/
 │   └── Vagrantfile
 └── ubuntu-os/
     └── Vagrantfile
-
+```
 
 ## **Contents**
 
